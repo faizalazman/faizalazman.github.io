@@ -1,2 +1,5 @@
-# covid-19 visualisation
- Covid -19 all country visualisation, will be able to fetch news api in the future
+# Covid-19 Visualisation
+ Including recovered, death, and reported cases of every country in the world
+ 
+ #TODO
+ Add ability to fetch news api
