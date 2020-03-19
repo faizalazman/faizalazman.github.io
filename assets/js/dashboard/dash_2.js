@@ -236,6 +236,8 @@ async function getData() {
     var death_toll = death[death.length - 1];
     var recovered_today = recovered[recovered.length - 1];
     var reported_cases_now = confirmed[confirmed.length - 1];
+
+
     return {
         data,
         date,
@@ -256,11 +258,14 @@ async function getNews() {
     var url = `https://newsapi.org/v2/top-headlines?country=my&q=covid&apiKey=f6a1d6ea77354f8b96a6b6938ce8618a`;
     let response = await fetch(url);
     let data = await response.json()
-    console.log(data.articles[2])
-        // Date
-    document.getElementById('date1').innerText = data.articles[0].publishedAt;
-    document.getElementById('date2').innerText = data.articles[1].publishedAt;
-    document.getElementById('date3').innerText = data.articles[2].publishedAt;
+
+    // Date
+    var dateStr1 = new Date(data.articles[0].publishedAt)
+    document.getElementById('date1').innerText = dateStr1.toDateString();
+    var dateStr2 = new Date(data.articles[0].publishedAt)
+    document.getElementById('date2').innerText = dateStr2.toDateString();
+    var dateStr3 = new Date(data.articles[0].publishedAt)
+    document.getElementById('date3').innerText = dateStr3.toDateString();
 
     // Image
     document.getElementById('img1').src = data.articles[0].urlToImage;
