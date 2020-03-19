@@ -1,4 +1,7 @@
-window.addEventListener("load", makeChart);
+window.addEventListener("load", () => {
+    makeChart();
+    getNews();
+});
 
 
 async function makeChart() {
@@ -244,3 +247,39 @@ async function getData() {
         reported_cases_now
     };
 }
+
+
+//f6a1d6ea77354f8b96a6b6938ce8618a
+
+
+async function getNews() {
+    var url = `http://newsapi.org/v2/top-headlines?country=my&q=covid&apiKey=f6a1d6ea77354f8b96a6b6938ce8618a`;
+    let response = await fetch(url);
+    let data = await response.json()
+    console.log(data.articles[2])
+        // Date
+    document.getElementById('date1').innerText = data.articles[0].publishedAt;
+    document.getElementById('date2').innerText = data.articles[1].publishedAt;
+    document.getElementById('date3').innerText = data.articles[2].publishedAt;
+
+    // Image
+    document.getElementById('img1').src = data.articles[0].urlToImage;
+    document.getElementById('img2').src = data.articles[1].urlToImage;
+    document.getElementById('img3').src = data.articles[2].urlToImage;
+
+    // Title
+    document.getElementById('title1').innerText = data.articles[0].title;
+    document.getElementById('title2').innerText = data.articles[1].title;
+    document.getElementById('title3').innerText = data.articles[2].title;
+
+
+    // Content
+    document.getElementById('text1').innerText = data.articles[0].description;
+    document.getElementById('text2').innerText = data.articles[1].description;
+    document.getElementById('text3').innerText = data.articles[2].description;
+
+    // Author
+    document.getElementById('author1').innerText = data.articles[0].author;
+    document.getElementById('author2').innerText = data.articles[1].author;
+    document.getElementById('author3').innerText = data.articles[2].author;
+};
