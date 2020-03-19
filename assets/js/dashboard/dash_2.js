@@ -202,12 +202,11 @@ async function makeChart() {
         }]);
 
         ApexCharts.exec('chart2', "updateSeries", [{
-            data: recovered
-        }, {
             data: death
+        }, {
+            data: recovered
         }]);
-
-        document.getElementById("death").innerHTML = (death_toll / covidData.reported_cases_now * 100).toFixed(2) + '%';
+        document.getElementById("death").innerHTML = (death_toll / reported_cases_now * 100).toFixed(2) + '%';
         document.getElementById("report").innerHTML = reported_cases_now;
         document.getElementById("recover").innerHTML = recovered_today;
     })
