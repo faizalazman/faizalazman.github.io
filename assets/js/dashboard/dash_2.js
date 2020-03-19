@@ -282,4 +282,10 @@ async function getNews() {
     document.getElementById('author1').innerText = data.articles[0].author;
     document.getElementById('author2').innerText = data.articles[1].author;
     document.getElementById('author3').innerText = data.articles[2].author;
+
+
+    // Author
+    document.getElementById('link1').href = data.articles[0].url;
+    document.getElementById('link2').href = data.articles[1].url;
+    document.getElementById('link3').href = data.articles[2].url;
 };
