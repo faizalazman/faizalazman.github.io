@@ -253,7 +253,7 @@ async function getData() {
 
 
 async function getNews() {
-    var url = `http://newsapi.org/v2/top-headlines?country=my&q=covid&apiKey=f6a1d6ea77354f8b96a6b6938ce8618a`;
+    var url = `https://newsapi.org/v2/top-headlines?country=my&q=covid&apiKey=f6a1d6ea77354f8b96a6b6938ce8618a`;
     let response = await fetch(url);
     let data = await response.json()
     console.log(data.articles[2])
