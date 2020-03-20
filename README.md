@@ -11,7 +11,7 @@ Thank you , [News API](https://newsapi.org/) for their free plan API that makes 
  - Ability to fetch latest news. **DONE**
  - Improved aesthetics. **DONE**
  - Code cleanup. **WIP**
- - Changing new according to country chosen **WIP**
+ - Changing latest news according to country chosen **WIP**
  
 # My Portfolio
 [Faizal Azman](https://faizalazman.ml/)
