@@ -7,6 +7,16 @@ window.addEventListener("load", () => {
 async function makeChart() {
     const covidData = await getData();
 
+
+    covidData.countryList.forEach(selectionCountry)
+
+    function selectionCountry(country) {
+        var x = document.getElementById("select");
+        var option = document.createElement("option");
+        option.text = country;
+        x.add(option);
+    }
+
     document.getElementById("death").innerHTML = (covidData.death_toll / covidData.reported_cases_now * 100).toFixed(2) + '%';
     document.getElementById("report").innerHTML = covidData.reported_cases_now;
     document.getElementById("recover").innerHTML = covidData.recovered_today;
@@ -188,14 +198,6 @@ async function makeChart() {
     d_1C_4.render();
 
 
-    covidData.countryList.forEach(selectionCountry)
-
-    function selectionCountry(country) {
-        var x = document.getElementById("select");
-        var option = document.createElement("option");
-        option.text = country;
-        x.add(option);
-    }
 
     document.getElementById('select').addEventListener('change', () => {
         countryValue = document.getElementById('select').value
