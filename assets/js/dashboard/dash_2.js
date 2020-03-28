@@ -19,7 +19,7 @@ async function makeChart() {
 
     let y = $('table').find('tbody')
     for (let i= 0 ; i < covidData.countryList.length ; i++) {
-        y.append(`<tr><td>${covidData.countryList[i]}</td><td>${covidData.confirmed_case_today[i]}</td><td>${covidData.death_today[i]}</td><td>${covidData.recovered_until_today[i]}</td></tr>`);
+        y.append(`<tr><td>${covidData.countryList[i]}</td><td>${covidData.confirmed_case_today[i]}</td><td>${covidData.death_today[i]}</td><td>${covidData.recovered_until_today[i]}</td><td>${ (covidData.death_today[i] / covidData.confirmed_case_today[i] * 100).toFixed(2)}</td></tr>`);
     }
 
     $(document).ready(function () {
