@@ -17,6 +17,27 @@ async function makeChart() {
         x.add(option);
     }
 
+    let y = $('table').find('tbody')
+    for (let i= 0 ; i < covidData.countryList.length ; i++) {
+        y.append(`<tr><td>${covidData.countryList[i]}</td><td>${covidData.confirmed_case_today[i]}</td><td>${covidData.death_today[i]}</td><td>${covidData.recovered_until_today[i]}</td></tr>`);
+    }
+
+    $(document).ready(function () {
+        $('#zero-config').DataTable({
+            "oLanguage": {
+                "oPaginate": { "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
+                "sInfo": "Showing page _PAGE_ of _PAGES_",
+                "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+                "sSearchPlaceholder": "Search...",
+               "sLengthMenu": "Results :  _MENU_",
+            },
+            "stripeClasses": [],
+            "lengthMenu": [5, 10, 20, 50],
+            "pageLength": 5 
+        });
+        $('.dataTables_length').addClass('bs-select');
+      });
+
     document.getElementById("death").innerHTML = (covidData.death_toll / covidData.reported_cases_now * 100).toFixed(2) + '%';
     document.getElementById("report").innerHTML = covidData.reported_cases_now;
     document.getElementById("recover").innerHTML = covidData.recovered_today;
@@ -239,6 +260,9 @@ async function getData() {
     const confirmed = [];
     const death = [];
     const recovered = [];
+    const confirmed_case_today = []
+    const death_today = []
+    const recovered_until_today = []
     data['Afghanistan'].forEach(function(item, index) {
         date.push(item["date"]);
         confirmed.push(item["confirmed"]);
@@ -250,6 +274,16 @@ async function getData() {
     var reported_cases_now = confirmed[confirmed.length - 1];
     var countryList = Object.keys(data)
 
+
+    countryList.forEach(function(country,index) {
+        confirmed_case_today.push(data[country][data[country].length - 1]['confirmed'])
+        death_today.push(data[country][data[country].length - 1]['deaths'])
+        recovered_until_today.push(data[country][data[country].length - 1]['recovered'])
+    })
+
+    const newArr = [countryList, confirmed_case_today,death_today, recovered_until_today]
+    console.log(newArr)
+
     return {
         countryList,
         data,
@@ -259,7 +293,10 @@ async function getData() {
         recovered,
         death_toll,
         recovered_today,
-        reported_cases_now
+        reported_cases_now,
+        confirmed_case_today,
+        death_today, 
+        recovered_until_today
     };
 }
 
