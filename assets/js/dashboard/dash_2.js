@@ -283,7 +283,7 @@ async function getData() {
 
     const newArr = [countryList, confirmed_case_today,death_today, recovered_until_today]
     console.log(newArr)
-
+    console.log(confirmed)
     return {
         countryList,
         data,
