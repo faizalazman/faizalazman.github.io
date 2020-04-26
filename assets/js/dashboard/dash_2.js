@@ -282,8 +282,6 @@ async function getData() {
     })
 
     const newArr = [countryList, confirmed_case_today,death_today, recovered_until_today]
-    console.log(newArr)
-    console.log(confirmed)
     return {
         countryList,
         data,
@@ -305,10 +303,10 @@ async function getData() {
 
 
 async function getNews() {
-    var url = `https://newsapi.org/v2/top-headlines?country=my&q=covid&apiKey=f6a1d6ea77354f8b96a6b6938ce8618a`;
+    var url = `https://newsapi.org/v2/top-headlines?country=my&q=covid&apiKey=450a0dbbc93d472a8823763c6736fe8a`;
     let response = await fetch(url);
     let data = await response.json()
-
+    console.log(data)
     // Date
     var dateStr1 = new Date(data.articles[0].publishedAt)
     document.getElementById('date1').innerText = dateStr1.toDateString();
