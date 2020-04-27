@@ -12,6 +12,7 @@
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/plugins.css" rel="stylesheet" type="text/css" />
     <link href="bootstrap/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="plugins/loaders/custom-loader.css" rel="stylesheet" type="text/css">
     <!-- END GLOBAL MANDATORY STYLES -->
     
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
@@ -24,19 +25,9 @@
     <link rel="stylesheet" type="text/css" href="plugins/table/datatable/datatables.css">
     <link rel="stylesheet" type="text/css" href="plugins/table/datatable/dt-global_style.css">
 
-    <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-162101494-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-162101494-1');
-    </script>
-
 </head>
 <body class="sidebar-noneoverflow">
+
     
     <!--  BEGIN NAVBAR  -->
     <div class="header-container">
@@ -255,6 +246,7 @@
     <!-- END MAIN CONTAINER -->
 
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="assets/js/libs/jquery-3.1.1.min.js"></script>
     <script src="bootstrap/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
@@ -275,6 +267,14 @@
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
     <script src="plugins/apex/apexcharts.min.js"></script>
     <script src="assets/js/dashboard/dash_2.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.se-pre-con ').fadeOut(2500)
+        })
+    </script>
 </body>
+<div class="se-pre-con"></div>
+
 
 </html>

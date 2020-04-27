@@ -316,29 +316,34 @@ async function getNews() {
     document.getElementById('date3').innerText = dateStr3.toDateString();
 
     // Image
-    document.getElementById('img1').src = data.articles[0].urlToImage;
-    document.getElementById('img2').src = data.articles[1].urlToImage;
-    document.getElementById('img3').src = data.articles[2].urlToImage;
 
+    for (let i = 1; i < 4 ; i++) {
+        if (data.articles[i].urlToImage == null) {
+            document.getElementById(`img${i}`).src = 'https://png.pngitem.com/pimgs/s/279-2791648_404-page-not-found-png-transparent-png.png'
+        } else {
+            document.getElementById(`img${i}`).src = data.articles[i].urlToImage; 
+        }
+        
+    }
     // Title
-    document.getElementById('title1').innerText = data.articles[0].title;
-    document.getElementById('title2').innerText = data.articles[1].title;
-    document.getElementById('title3').innerText = data.articles[2].title;
+    document.getElementById('title1').innerText = data.articles[1].title;
+    document.getElementById('title2').innerText = data.articles[2].title;
+    document.getElementById('title3').innerText = data.articles[3].title;
 
 
     // Content
-    document.getElementById('text1').innerText = data.articles[0].description;
-    document.getElementById('text2').innerText = data.articles[1].description;
-    document.getElementById('text3').innerText = data.articles[2].description;
+    document.getElementById('text1').innerText = data.articles[1].description;
+    document.getElementById('text2').innerText = data.articles[2].description;
+    document.getElementById('text3').innerText = data.articles[3].description;
 
     // Author
-    document.getElementById('author1').innerText = data.articles[0].author;
-    document.getElementById('author2').innerText = data.articles[1].author;
-    document.getElementById('author3').innerText = data.articles[2].author;
+    document.getElementById('author1').innerText = data.articles[1].author;
+    document.getElementById('author2').innerText = data.articles[2].author;
+    document.getElementById('author3').innerText = data.articles[3].author;
 
 
     // Author
-    document.getElementById('link1').href = data.articles[0].url;
-    document.getElementById('link2').href = data.articles[1].url;
-    document.getElementById('link3').href = data.articles[2].url;
+    document.getElementById('link1').href = data.articles[1].url;
+    document.getElementById('link2').href = data.articles[2].url;
+    document.getElementById('link3').href = data.articles[3].url;
 };
