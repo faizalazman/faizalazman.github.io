@@ -303,7 +303,7 @@ async function getData() {
 
 
 async function getNews() {
-    var url = `https://github.com/faizalazman/newsapi/blob/master/db.json`;
+    var url = `https://raw.githubusercontent.com/faizalazman/newsapi/master/db.json`;
     let response = await fetch(url);
     let data = await response.json()
     console.log(data)
