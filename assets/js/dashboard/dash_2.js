@@ -303,7 +303,7 @@ async function getData() {
 
 
 async function getNews() {
-    var url = `https://my-json-server.typicode.com/faizalazman/newsapi`;
+    var url = `https://github.com/faizalazman/newsapi/blob/master/db.json`;
     let response = await fetch(url);
     let data = await response.json()
     console.log(data)
