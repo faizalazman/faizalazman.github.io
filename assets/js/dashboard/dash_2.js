@@ -303,7 +303,7 @@ async function getData() {
 
 
 async function getNews() {
-    var url = `https://newsapi.org/v2/top-headlines?country=my&q=covid&apiKey=450a0dbbc93d472a8823763c6736fe8a`;
+    var url = `https://my-json-server.typicode.com/faizalazman/newsapi`;
     let response = await fetch(url);
     let data = await response.json()
     console.log(data)
